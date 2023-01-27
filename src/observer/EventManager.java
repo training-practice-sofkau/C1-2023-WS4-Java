@@ -19,7 +19,7 @@ public class EventManager implements Receive {
     }
 
     @Override
-    public void recive(Event e) {
+    public void receive(Event e) {
         events.add(e);
         emit();
     }
