@@ -6,14 +6,12 @@ public class Main {
         pc1.plugPc();
         System.out.println(pc1.isConnectedPc());
 
-        Connectable old1 = new AdapterConnectable();
-        old1.plugPc();
-        System.out.println(old1.isConnectedPc());
+        OldConsole old1 = new OldConsole();
+        old1.plugPs2();
+        System.out.println(old1.isConnectedPs2());
 
-
-
-        AdapterConnectable adpter = new AdapterConnectable();
-
-
+        AdapterConnectable adapterOld1 = new AdapterConnectable(old1);
+        adapterOld1.plugPc();
+        System.out.println(adapterOld1.isConnectedPc());
     }
 }

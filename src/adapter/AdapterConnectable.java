@@ -1,22 +1,24 @@
 package adapter;
 
 public class AdapterConnectable implements Connectable{
+    private  OldConsole plug;
 
-    private OldConsole console = new OldConsole();
-
+    public AdapterConnectable(OldConsole plug) {
+        this.plug = plug;
+    }
 
     @Override
     public boolean isConnectedPc() {
-        return console.isConnectedPs2();
+        return plug.isConnectedPs2();
     }
 
     @Override
     public void plugPc() {
-        console.plugPs2();
+        plug.plugPs2();
     }
 
     @Override
     public void unplugPc() {
-        console.unplugPs2();
+        plug.unplugPs2();
     }
 }
