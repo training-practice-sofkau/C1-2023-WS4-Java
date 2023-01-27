@@ -1,12 +1,18 @@
 package strategy;
 
 class PaypalStrategy implements PaymentStrategy {
-    private String emailId;
+    private String email;
     private String password;
 
-    public PaypalStrategy(String emailId, String password){
-        this.emailId = emailId;
-        this.password = password;
+    @Override
+    public void collectPaymentDetails() {
+        email = "...";
+        password = "...";
+    }
+
+    @Override
+    public boolean validatePaymentDetails() {
+        return true;
     }
 
     @Override

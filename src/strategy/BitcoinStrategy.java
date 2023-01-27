@@ -4,9 +4,16 @@ class BitcoinStrategy implements PaymentStrategy {
     private String btcAddress;
     private String password;
 
-    public BitcoinStrategy(String btcAddress, String password){
-        this.btcAddress = btcAddress;
-        this.password = password;
+
+    @Override
+    public void collectPaymentDetails() {
+        btcAddress = "btcAddress";
+        password = "password";
+    }
+
+    @Override
+    public boolean validatePaymentDetails() {
+        return true;
     }
 
     @Override

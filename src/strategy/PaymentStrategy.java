@@ -1,5 +1,8 @@
 package strategy;
 
 interface PaymentStrategy {
-    public abstract void pay(double amount);
+
+    void collectPaymentDetails();
+    boolean validatePaymentDetails();
+    void pay(double amount);
 }

@@ -6,11 +6,18 @@ class CreditCardStrategy implements PaymentStrategy {
     private String cvv;
     private String dateOfExpiry;
 
-    public CreditCardStrategy(String name, String cardNumber, String cvv, String dateOfExpiry){
-        this.name = name;
-        this.cardNumber = cardNumber;
-        this.cvv = cvv;
-        this.dateOfExpiry = dateOfExpiry;
+
+    @Override
+    public void collectPaymentDetails() {
+        name = "Credit Card";
+        cardNumber = "cardNumber";
+        cvv = "cvv";
+        dateOfExpiry = "dateOfExpiry";
+    }
+
+    @Override
+    public boolean validatePaymentDetails() {
+        return true;
     }
 
     @Override

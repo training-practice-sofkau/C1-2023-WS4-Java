@@ -3,13 +3,22 @@ package strategy;
 public class Main {
     public static void main(String[] args) {
 
-        PaymentStrategy creditCard = new CreditCardStrategy("Juan Guillermo", "74896552378", "855", "04/28");
-        PaymentStrategy paypal = new PaypalStrategy("juan@sofka.com", "Sofkiano.2023");
-        PaymentStrategy bitcoin = new BitcoinStrategy("1BNyGhyUrtvb78YhxDhTTT", "btcWallet.1569875");
+    PaymentService paymentService = new PaymentService();
 
-        creditCard.pay(500);
-        paypal.pay(400);
-        bitcoin.pay(0.01);
+    paymentService.setCost(200);
+    paymentService.setStrategy(new CreditCardStrategy());
+    paymentService.processOrder();
+    System.out.println();
+
+    paymentService.setCost(460);
+    paymentService.setStrategy(new PaypalStrategy());
+    paymentService.processOrder();
+    System.out.println();
+
+    paymentService.setCost(600);
+    paymentService.setStrategy(new BitcoinStrategy());
+    paymentService.processOrder();
+    System.out.println();
     }
 }
 
