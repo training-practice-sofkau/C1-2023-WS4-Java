@@ -1,13 +1,15 @@
 package builder;
 
 public interface HouseBuilder {
-    void setRooms(int rooms);
+    HouseBuilder setRooms(int rooms);
 
-    void setBathrooms(int bathrooms);
+    HouseBuilder setBathrooms(int bathrooms);
 
-    void setGarage(boolean garage);
+    HouseBuilder setGarage(boolean garage);
 
-    void setPool(boolean pool);
+    HouseBuilder setPool(boolean pool);
 
-    Habitat getHouse();
+    HouseBuilder setGarden(boolean garden);
+
+    Habitat build();
 }
