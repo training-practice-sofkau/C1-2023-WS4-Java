@@ -7,8 +7,13 @@ public class Main {
 
         ControllerAdapter adapter = new ControllerAdapter();
 
+        System.out.println(nesController.getClass());
         cheatCode(nesController);
+
+        System.out.println("\n\n"+segaController.getClass());
         cheatCode(segaController);
+
+        System.out.println("\n\n"+adapter.getClass());
         cheatCode(adapter);
 
     }
