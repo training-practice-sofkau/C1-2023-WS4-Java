@@ -1,0 +1,2 @@
+Create a class that represents an old video game console and another class that represents a modern gaming computer.
+Implement an adapter class that allows the client to use the old console's controllers to play games on the computer.

@@ -1,0 +1,4 @@
+Let's say you're working on a project that involves a printer. You need to create a class that will handle all the printing for the application.
+Create a class that uses the Singleton pattern. The class should have a private constructor, a static method that returns the single instance of the class,
+and methods for performing some actions like print, which can display a simple message. Add a test that verifies that the class is a singleton by creating multiple
+instances of the class and comparing their reference.

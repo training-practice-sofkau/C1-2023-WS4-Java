@@ -1,0 +1,2 @@
+Create a class called PaymentStrategy that has an abstract method pay(). Create three subclasses that implement this method: CreditCardStrategy, PaypalStrategy,
+and BitcoinStrategy. Each of these classes should have a method pay() that simulates a payment process using the corresponding payment method.
