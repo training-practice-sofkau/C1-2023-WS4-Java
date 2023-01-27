@@ -7,29 +7,40 @@ public class BricksHouseBuilder implements HouseBuilder {
     private int bathrooms;
     private boolean garage;
     private boolean pool;
+    private boolean garden;
 
     @Override
-    public void setRooms(int rooms) {
+    public HouseBuilder setRooms(int rooms) {
         this.rooms = rooms;
-    }
+        return this;
+}
 
     @Override
-    public void setBathrooms(int bathrooms) {
+    public HouseBuilder setBathrooms(int bathrooms) {
         this.bathrooms = bathrooms;
+        return this;
     }
 
     @Override
-    public void setGarage(boolean garage) {
+    public HouseBuilder setGarden(boolean garden) {
+        this.garden = garden;
+        return this;
+    }
+
+    @Override
+    public HouseBuilder setGarage(boolean garage) {
         this.garage = garage;
+        return this;
     }
 
     @Override
-    public void setPool(boolean pool) {
+    public HouseBuilder setPool(boolean pool) {
         this.pool = pool;
+        return this;
     }
 
     @Override
-    public Habitat getHouse() {
-        return new BricksHouse(this.rooms, this.bathrooms, this.garage, this.pool);
+    public Habitat build() {
+        return new BricksHouse(this.rooms, this.bathrooms, this.garage, this.pool, this.garden);
     }
 }
