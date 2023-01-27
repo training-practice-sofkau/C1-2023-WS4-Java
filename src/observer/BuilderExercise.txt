@@ -1,0 +1,3 @@
+Create a class called House that has several fields such as rooms, bathrooms, garage, garden, and pool. Create a class called HouseBuilder that has methods to set each of these
+fields, such as setRooms(), setBathrooms(), setGarage(), setGarden(), and setPool(). The HouseBuilder class should also have a method called build() that returns the House object
+with all the fields set.

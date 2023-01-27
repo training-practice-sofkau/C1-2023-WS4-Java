@@ -1,8 +1,10 @@
 package factory;
 
 public class CircleFactory extends ShapeFactory{
+
     @Override
-    public Shape createShape() {
-        return new Circle();
+    public Shape createShape(String radius) {
+
+        return new Circle(radius);
     }
 }
