@@ -1,50 +1,21 @@
 package observer;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Event {
-    private String name;
-    private String location;
-    private String startTime;
-    private String endTime;
 
-    private ArrayList<Calendar> calendars;
+    private List<Receiver> calendars = new ArrayList<>();
 
-    public Event(String name, String location, String startTime, String endTime) {
-        this.name = name;
-        this.location = location;
-        this.startTime = startTime;
-        this.endTime = endTime;
-        this.calendars = new ArrayList<>();
+    public void addCalendar(Receiver calendar){
+        this.calendars.add(calendar);
     }
 
-    public Event(String name) {
-        this.name = name;
-        this.calendars = new ArrayList<>();
-    }
-
-    //TO-DO: Add an observer
-    public void addObserver(Calendar c){
-        calendars.add(c);
-    }
-
-
-    //TO-DO: Getters & Setters
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void notifyObserver(){
-        for(Calendar c: calendars){
-            c.updateEvent(this);
+    public void emitEvent(Timestamp date, String name){
+        for (Receiver calendar : calendars){
+            calendar.receiveEvent(date, name);
         }
+        System.out.println("Calendar updated");
     }
-    //
-
-
 }
