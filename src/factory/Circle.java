@@ -4,6 +4,10 @@ public class Circle implements Shape{
 
     @Override
     public void draw() {
-        System.out.println("I draw a Circle.");
+        System.out.println("Circle created");
     }
+
+
+
+
 }
