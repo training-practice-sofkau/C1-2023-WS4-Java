@@ -1,7 +1,20 @@
 package factory;
 
-public abstract class ShapeFactory {
-    //TO-DO: Define a method that acts as the main factory
-    public abstract Shape createShape();
+    public class ShapeFactory {
+        public Shape getShape(String shapeType) {
+            if(shapeType == null) {
+                return null;
+            }
+            if(shapeType.equalsIgnoreCase("Circle")) {
+                return new Circle();
+            }
+            if(shapeType.equalsIgnoreCase("Square")) {
+                return new Square();
+            }
+            if(shapeType.equalsIgnoreCase("Rectangle")) {
+                return new Rectangle();
+            }
+            return null;
+        }
 
 }
