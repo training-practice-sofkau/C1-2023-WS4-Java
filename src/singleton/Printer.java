@@ -3,11 +3,9 @@ package singleton;
 public class Printer {
     private static Printer instance;
 
-    //private Printer(){}
+    private Printer(){}
 
-    public Printer(){
-
-    }
+    //public Printer(){}
 
     public static Printer getInstance(){
         if(instance == null){
