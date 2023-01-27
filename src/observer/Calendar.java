@@ -1,31 +1,24 @@
 package observer;
 
-import java.util.ArrayList;
 
-public class Calendar {
-    private ArrayList<Event> events;
+import java.sql.Timestamp;
+import java.util.Map;
+import java.util.TreeMap;
 
-    public Calendar(){
-        events = new ArrayList<>();
+public class Calendar implements Receiver{
+
+    Map<Timestamp, String> birthdays = new TreeMap<>();
+
+    @Override
+    public void receiveEvent(Timestamp date, String name){
+        birthdays.put(date, name);
     }
 
-    //
-    public void addEvent(Event e){
-        events.add(e);
-
-    }
-
-    public void updateEvent(Event e){
-        if(!events.contains(e)){
-            addEvent(e);
-        }
-    }
-
-    public void displayEvents(){
-        for(Event e: events){
-            System.out.println("Event: "+e.getName());
-
-        }
+    public void showBirthdays(){
         System.out.println();
+        System.out.println("---------------------");
+        System.out.println("Birthdays registered:");
+        System.out.println("---------------------");
+        birthdays.forEach((date, name) -> System.out.println(name + " birthday is in: " +date));
     }
 }
