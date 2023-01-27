@@ -35,15 +35,23 @@ public class Notifier {
 
     public void showEvents(){
         System.out.println("Which event you want to subscribe?: ");
-        for (int i = 0; i < this.events.size(); i++) {
-            System.out.println(i + ". Event: " + this.events.get(i));
+        if(this.events.size() != 0){
+            for (int i = 0; i < this.events.size(); i++) {
+                System.out.println(i + ". Event: " + this.events.get(i));
+            }
+        }else {
+            System.out.println("Event list is empty");
         }
     }
 
     public void showCalendars(){
         System.out.println("Which Calendar you want add a subscription?: ");
-        for (int i = 0; i < this.calendars.size(); i++) {
-            System.out.println(i + ". Calendar: " + this.calendars.get(i));
+        if(this.calendars.size() != 0){
+            for (int i = 0; i < this.calendars.size(); i++) {
+                System.out.println(i + ". Calendar: " + this.calendars.get(i));
+            }
+        }else{
+            System.out.println("Calendar list is empty");
         }
     }
 

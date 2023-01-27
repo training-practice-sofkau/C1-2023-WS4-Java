@@ -13,7 +13,11 @@ public class Observer {
 
     //
     public void addEvent(Event e){
-        this.events.add(e);
+        if(!this.events.contains(e)){
+            this.events.add(e);
+        }else {
+            System.out.println("This calendar is already subscribed to that event");
+        }
 
     }
 
@@ -23,11 +27,12 @@ public class Observer {
         }
     }
 
-    public void getNofification(String noti){
-        System.out.println("You have a new");
-    }
-
     public void displayEvents(){
         System.out.println("Events: "+this.events.toString());
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
     }
 }

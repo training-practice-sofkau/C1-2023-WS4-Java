@@ -18,8 +18,6 @@ public class ObserverTest {
         notifier.addEvents(event3);
         notifier.addEvents(event4);
 
-        Observer calendar = new Observer("First Calendar");
-
         int op = 0;
         do{
             System.out.println("""
@@ -27,13 +25,15 @@ public class ObserverTest {
 1. Create a new Event
 2. Create a new Calendar
 3. Add event to calendar
+4. See al the events
         """);
             op = inputNumber.nextInt();
             switch (op) {
                 case 1 -> createEvent();
                 case 2 -> createObserver();
                 case 3 -> notifier.addEventToCalendar();
-                case 4 -> System.out.println("--Closing program--");
+                case 4 -> notifier.showEvents();
+                case 5 -> System.out.println("--Closing program--");
                 default -> System.out.println("Wrong option");
             }
 
