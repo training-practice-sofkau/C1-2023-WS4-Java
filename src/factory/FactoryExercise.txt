@@ -1,3 +1,5 @@
 Create a class called ShapeFactory that has a method getShape(String shapeType). This method should take a string as a parameter and return an object of the corresponding shape.
 For example, if the parameter is "circle", the method should return a new Circle object. You should create classes for Circle, Square, and Rectangle that all implement a common
 Shape interface.
+
+Circle is done, follow it and do Rectangle, Triangle and Square.

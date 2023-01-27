@@ -1,5 +1,20 @@
+import observer.Calendar;
+import observer.Event;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        Calendar calendar = new Calendar();
+        Event event1 = new Event("Graduation Sofka");
+
+        event1.addObserver(calendar);
+
+        event1.notifyObserver();
+
+        calendar.displayEvents();
+
+
+
+
+
     }
 }
