@@ -1,50 +1,57 @@
 package observer;
 
-import java.util.ArrayList;
 
-public class Event {
+class Event {
     private String name;
-    private String location;
     private String startTime;
     private String endTime;
 
-    private ArrayList<Calendar> calendars;
+    private NotificationService notificationService = new NotificationService();
 
-    public Event(String name, String location, String startTime, String endTime) {
+
+    public Event(String name, String startTime, String endTime) {
         this.name = name;
-        this.location = location;
         this.startTime = startTime;
         this.endTime = endTime;
-        this.calendars = new ArrayList<>();
     }
 
-    public Event(String name) {
-        this.name = name;
-        this.calendars = new ArrayList<>();
+    public NotificationService getNotificationService() {
+        return notificationService;
     }
-
-    //TO-DO: Add an observer
-    public void addObserver(Calendar c){
-        calendars.add(c);
-    }
-
-
-    //TO-DO: Getters & Setters
 
     public String getName() {
         return name;
     }
 
+    public String getStartTime() {
+        return startTime;
+    }
+
+    public String getEndTime() {
+        return endTime;
+    }
+
     public void setName(String name) {
         this.name = name;
+        notificationService.notifyObservers("Name updated");
     }
 
-    public void notifyObserver(){
-        for(Calendar c: calendars){
-            c.updateEvent(this);
-        }
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
+        notificationService.notifyObservers("Start time updated");
     }
-    //
 
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
+        notificationService.notifyObservers("End time updated");
+    }
 
+    @Override
+    public String toString() {
+        return "Event{" +
+                "name='" + name + '\'' +
+                ", startTime='" + startTime + '\'' +
+                ", endTime='" + endTime + '\'' +
+                '}';
+    }
 }

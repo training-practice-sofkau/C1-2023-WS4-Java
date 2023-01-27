@@ -5,6 +5,7 @@ public class Main {
 
     PaymentService paymentService = new PaymentService();
 
+    System.out.println();
     paymentService.setCost(200);
     paymentService.setStrategy(new CreditCardStrategy());
     paymentService.processOrder();
