@@ -7,13 +7,15 @@ public class House {
     private Integer garage;
     private Integer garden;
     private Integer pool;
+    private Integer kitchen;
 
-    public House(Integer rooms, Integer bathroom, Integer garage, Integer garden, Integer pool) {
+    public House(Integer rooms, Integer bathroom, Integer garage, Integer garden, Integer pool, Integer kitchen) {
         this.rooms = rooms;
         this.bathroom = bathroom;
         this.garage = garage;
         this.garden = garden;
         this.pool = pool;
+        this.kitchen=kitchen;
     }
 
     @Override

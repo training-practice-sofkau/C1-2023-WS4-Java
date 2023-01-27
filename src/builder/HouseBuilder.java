@@ -7,15 +7,22 @@ public class HouseBuilder {
     private Integer garage;
     private Integer garden;
     private Integer pool;
+    private Integer kitchen;
 
 
     public House build(){
-        return  new House(rooms, bathroom, garage, garden, pool);
+        return  new House(rooms, bathroom, garage, garden, pool, kitchen);
     }
 
-
-
     //Setters and Getters --> setters are specific attribute builders
+
+    public Integer getKitchen() {
+        return kitchen;
+    }
+
+    public void buildKitchen(Integer kitchen) {
+        this.kitchen = kitchen;
+    }
 
     public Integer getRooms() {
         return rooms;
