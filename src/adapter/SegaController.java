@@ -1,29 +1,35 @@
 package adapter;
 
-public class DualSense {
+public class SegaController implements ConsoleController{
 
-    public void joyStickUp(){
-        System.out.println("↑");
+    @Override
+    public void arrowUp(){
+        System.out.print("↑");
     }
 
-    public void joyStickDown(){
-        System.out.println("↓");
+    @Override
+    public void arrowDown(){
+        System.out.print("↓");
     }
 
-    public void joyStickLeft(){
-        System.out.println("←");
+    @Override
+    public void arrowLeft(){
+        System.out.print("←");
     }
 
-    public void joyStickRight(){
-        System.out.println("→");
+    @Override
+    public void arrowRight(){
+        System.out.print("→");
     }
 
-    public void pressX(){
-        System.out.println("Action");
+    @Override
+    public void pressA(){
+        System.out.print("Action");
     }
 
-    public void pressO(){
-        System.out.println("Jump");
+    @Override
+    public void pressB(){
+        System.out.print("Jump");
     }
 
 }
