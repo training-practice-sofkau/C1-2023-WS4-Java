@@ -1,22 +1,18 @@
 package singleton;
 
 public class Printer {
+
     private static Printer instance;
+    private Printer(){}
 
-    //private Printer(){}
-
-    public Printer(){
-
-    }
-
-    public static Printer getInstance(){
-        if(instance == null){
+    public static Printer getInstance() {
+        if(instance == null) {
             instance = new Printer();
         }
         return instance;
     }
 
-    public void print(String msg){
-        System.out.println(msg);
+    public void print(String message) {
+        System.out.println(message);
     }
 }
