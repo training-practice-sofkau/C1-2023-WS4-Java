@@ -14,6 +14,6 @@ public class ModernConsoleAdapter implements Controllable{
     }
 
     private ModernControl convertOldContToModernCont(OldControl oldCont){
-        return new ModernControl(oldCont.getButton()/2);
+        return new ModernControl(oldCont.getButton()*2);
     }
 }

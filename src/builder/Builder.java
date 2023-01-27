@@ -9,13 +9,12 @@ public class Builder {
         builder.buildBathroom(2);
         builder.buildPool(1);
         builder.buildGarage(2);
-        builder.buildGarden(5);
         builder.buildRooms(3);
 
         House house1 = builder.build();
         System.out.println(house1);
 
-        builder.buildGarden(10);
+        builder.buildPool(2);
         House house2 = builder.build();
         System.out.println(house2);
 
