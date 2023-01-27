@@ -2,9 +2,6 @@ package singleton;
 
 public class Printer {
     private static Printer instance;
-
-    //private Printer(){}
-
     public Printer(){
 
     }

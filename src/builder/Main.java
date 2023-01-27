@@ -6,6 +6,7 @@ import builder.HousesTypes.SmallHouseBuilder;
 public class Main {
 
     public static void main(String[] args) {
+
         HouseBuilder big1 = new BigHouseBuilder();
         HouseBuilder small1 = new SmallHouseBuilder();
 
