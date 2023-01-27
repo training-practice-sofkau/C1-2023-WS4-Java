@@ -30,7 +30,6 @@ public class Notifier {
         showEvents();
         Event event = this.events.get(inNumber.nextInt());
         cal.addEvent(event);
-        nofifyObserver(cal,event);
     }
 
     public void showEvents(){
@@ -41,6 +40,13 @@ public class Notifier {
             }
         }else {
             System.out.println("Event list is empty");
+        }
+    }
+
+    public void updateEvent(Event e,Event n){
+        if(this.events.contains(e)){
+            e.updateEvent(n);
+            nofifyObservers(e,n);
         }
     }
 
@@ -55,9 +61,20 @@ public class Notifier {
         }
     }
 
-    public void nofifyObserver(Observer observer,Event event){
-        System.out.println("The calendar");
+    public void nofifyObservers(Event event, Event n){
+        this.calendars.stream().filter(f -> f.displayEvents().contains(event)).forEach(c -> {
+            c.displayEvents().removeIf(event1 -> event1.equals(event));
+            c.addEvent(n);
+            System.out.println("The event " + event.getName() + " has changed");
+            System.out.println("It is now: " + n);
+        });
     }
 
+    public List<Event> getEvents() {
+        return events;
+    }
 
+    public List<Observer> getCalendars() {
+        return calendars;
+    }
 }

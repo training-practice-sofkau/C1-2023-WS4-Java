@@ -21,11 +21,14 @@ public class ObserverTest {
         int op = 0;
         do{
             System.out.println("""
+
+
 --Choose an option--
 1. Create a new Event
 2. Create a new Calendar
 3. Add event to calendar
 4. See al the events
+5. Update an event
         """);
             op = inputNumber.nextInt();
             switch (op) {
@@ -33,11 +36,12 @@ public class ObserverTest {
                 case 2 -> createObserver();
                 case 3 -> notifier.addEventToCalendar();
                 case 4 -> notifier.showEvents();
-                case 5 -> System.out.println("--Closing program--");
+                case 5 -> updateAndEvent();
+                case 0 -> System.out.println("--Closing program--");
                 default -> System.out.println("Wrong option");
             }
 
-        }while (op != 5);
+        }while (op != 0);
     }
     public static void createEvent(){
         System.out.println("Enter the event name: ");
@@ -59,6 +63,22 @@ public class ObserverTest {
         Observer observer = new Observer(name);
         notifier.addCalendar(observer);
         System.out.println("--Observer created successfully--");
+    }
+
+    public static void updateAndEvent(){
+        notifier.showEvents();
+        System.out.println("Select the event to edit: ");
+        Event event = notifier.getEvents().get(inputNumber.nextInt());
+        System.out.println("Enter the event new name: ");
+        String name = inputText.nextLine();
+        System.out.println("Enter the event new location: ");
+        String location = inputText.nextLine();
+        System.out.println("Enter the event new start hour: ");
+        String startHour = inputText.nextLine();
+        System.out.println("Enter the event new finish hour: ");
+        String endHour = inputText.nextLine();
+        Event event2 = new Event(name,location,startHour, endHour);
+        notifier.updateEvent(event,event2);
     }
 
 }

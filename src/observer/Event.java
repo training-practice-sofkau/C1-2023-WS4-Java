@@ -15,6 +15,15 @@ public class Event {
         this.endTime = endTime;
     }
 
+    public void updateEvent(Event e){
+        this.name = e.getName();
+        this.location = e.getLocation();
+        this.endTime = e.getEndTime();
+        this.startTime = e.getStartTime();
+
+        System.out.println("--Event created successfully--");
+    }
+
     //TO-DO: Getters & Setters
 
     public void setName(String name) {

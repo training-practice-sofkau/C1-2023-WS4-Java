@@ -1,6 +1,7 @@
 package observer;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Observer {
     private ArrayList<Event> events;
@@ -27,12 +28,15 @@ public class Observer {
         }
     }
 
-    public void displayEvents(){
-        System.out.println("Events: "+this.events.toString());
+
+    public List<Event> displayEvents(){
+        return this.events;
     }
 
     @Override
     public String toString() {
-        return super.toString();
+        return "Observer{ " +
+                "name='" + name + '\'' +
+                " }";
     }
 }
