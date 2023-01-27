@@ -13,6 +13,20 @@ public class Facture {
         this.amount = amount;
     }
 
+    public void printFacture(String order) {
+        System.out.println("------------------------------------------");
+        System.out.println("---------------your Facture---------------");
+        System.out.println("------------------------------------------");
+        System.out.println("---Name: "+this.clientName);
+        System.out.println("---Email Address: "+this.clientEmailAddress);
+        System.out.println("------------------------------------------");
+        System.out.println("---Order:");
+        System.out.println("------*"+order+"     "+this.amount);
+        System.out.println("---Total Price: "+this.amount);
+        System.out.println("------------------------------------------");
+        System.out.println("------------------------------------------");
+    }
+
     public void setPaymentStrategy(PaymentStrategy paymentStrategy) {
         this.paymentStrategy = paymentStrategy;
     }

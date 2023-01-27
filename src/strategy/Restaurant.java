@@ -11,42 +11,46 @@ public class Restaurant {
         String name = scanner.nextLine();
         System.out.println("Please enter your email address");
         String emailAddress = scanner.nextLine();
-        System.out.println("What menu would you like to order?\n-- 1. Pizza($30.000)\n-- 2. Burger($25.000)\n-- 3.Burrito($15.000)\n-- 4.Salad($10.000)");
+        System.out.println("What menu would you like to order?\n-- 1. Pizza($30.000)\n-- 2. Burger($25.000)\n-- 3. Burrito($15.000)\n-- 4. Salad($10.000)");
         int orderCost = 0;
-        switch (scanner.nextLine().toLowerCase()) {
-            case "pizza": {
+        String order = scanner.nextLine().toLowerCase();
+        switch (order) {
+            case "pizza" -> {
                 orderCost += 30000;
             }
-            case "burger": {
+            case "burger" -> {
                 orderCost += 25000;
             }
-            case "burrito": {
+            case "burrito" -> {
                 orderCost += 15000;
             }
-            case "salad": {
+            case "salad" -> {
                 orderCost += 10000;
             }
-            default: {
-                System.out.println("Invalid option, you got kicked out of the restaurant");
+            default -> {
+                System.out.println("Invalid option, you will be served a glass of water");
+                orderCost += 500;
             }
         }
         Facture tempFacture = new Facture(name, emailAddress, orderCost);
+        System.out.println("This is your facture:");
+        tempFacture.printFacture(order);
         System.out.println("What method would you like to use for the payment?\n-- 1. Credit Card (type 1)\n-- 2. Bitcoin (type 2)\n-- 3. Paypal (type 3)");
         PaymentStrategy paymentStrategy;
         switch (scanner.nextLine().toLowerCase()) {
-            case "1":{
+            case "1" -> {
                 paymentStrategy = new CreditCardStrategy();
                 System.out.println("You have selected the credit card payment method");
             }
-            case "2":{
+            case "2" -> {
                 paymentStrategy = new BitcoinStrategy();
                 System.out.println("You have selected the Bitcoin payment method");
             }
-            case "3":{
+            case "3" -> {
                 paymentStrategy = new PaypalStrategy();
                 System.out.println("You have selected the Paypal payment method");
             }
-            default: {
+            default -> {
                 paymentStrategy = new CreditCardStrategy();
                 System.out.println("You didn't selected a valid payment method so the credit card payment method has been automatically selected");
             }
@@ -54,6 +58,13 @@ public class Restaurant {
         tempFacture.setPaymentStrategy(paymentStrategy);
         System.out.println("To pay please enter your account reference");
         String accountReference = scanner.nextLine();
-
+        tempFacture.cancelFacture(accountReference);
+        int counter = 2;
+        while (!tempFacture.isCanceled()) {
+            System.out.println("\nAs your payment was rejected we'll a " + counter + " time");
+            tempFacture.cancelFacture(accountReference);
+            counter++;
+        }
+        System.out.println("\n-------------------------------------------\nThank you for your visit, see you next time\n-------------------------------------------\n");
     }
 }
