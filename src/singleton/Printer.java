@@ -2,21 +2,20 @@ package singleton;
 
 public class Printer {
     private static Printer instance;
+    public String value;
 
-    //private Printer(){}
-
-    public Printer(){
-
+    private Printer(String value){
+        this.value = value;
     }
 
-    public static Printer getInstance(){
+    public static Printer getInstance(String value){
         if(instance == null){
-            instance = new Printer();
+            instance = new Printer(value);
         }
         return instance;
     }
 
-    public void print(String msg){
-        System.out.println(msg);
+    public void print(){
+        System.out.println(value);
     }
 }
